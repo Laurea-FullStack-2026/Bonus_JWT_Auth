@@ -212,7 +212,7 @@ Authorization: Bearer <token>
 
 ## Learn More About JWT
 
-- **JWT Official Site**: https://jwt.io/ - Learn about JWT structure, encoding/decoding, and test tokens
+- **JWT Official Site**: https://www.jwt.io/introduction#what-is-json-web-token - Learn about JWT structure, encoding/decoding, and test tokens
 - **OAuth 2.0 & JWT**: https://tools.ietf.org/html/rfc7519 - Official JWT specification (RFC 7519)
 - **MDN - Web Authentication**: https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
 - **Node.js JWT Tutorial**: https://www.npmjs.com/package/jsonwebtoken - jsonwebtoken package documentation
