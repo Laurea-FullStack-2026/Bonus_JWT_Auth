@@ -68,6 +68,77 @@ A simple JWT-based authentication system built with Node.js/Express, MongoDB, an
    http://localhost:5000
    ```
 
+## Docker Deployment
+
+### Local Docker Development
+
+1. **Build and run with Docker Compose** (includes MongoDB):
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Access the application**:
+   ```
+   http://localhost:5000
+   ```
+
+3. **Stop containers**:
+   ```bash
+   docker-compose down
+   ```
+
+### Deploy to Render
+
+#### Prerequisites
+- GitHub account with this repository pushed
+- Render account (free at https://render.com)
+- MongoDB Atlas account (free at https://www.mongodb.com/cloud/atlas)
+
+#### Setup MongoDB Atlas
+
+1. Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Create a database user with password
+3. Whitelist all IPs (0.0.0.0/0) for Render access
+4. Get your connection string (looks like: `mongodb+srv://username:password@cluster.mongodb.net/jwt_auth`)
+
+#### Deploy to Render
+
+1. **Push your code to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Create a new Web Service on Render**:
+   - Go to [Render Dashboard](https://dashboard.render.com/)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+   - Configure:
+     - **Name**: jwt-auth-example (or your choice)
+     - **Environment**: Docker
+     - **Region**: Choose closest to you
+     - **Branch**: main
+     - **Instance Type**: Free
+
+3. **Set Environment Variables** in Render:
+   - `MONGODB_URI`: Your MongoDB Atlas connection string
+   - `JWT_SECRET`: Your secret key (generate a new one for production)
+   - `PORT`: 5000
+
+4. **Deploy**:
+   - Click "Create Web Service"
+   - Render will automatically build and deploy your Docker container
+
+5. **Access your app**:
+   - Your app will be available at: `https://your-service-name.onrender.com`
+
+#### Important Notes for Render
+- Free tier apps may spin down after inactivity (30-50 seconds to wake up)
+- First deployment takes 5-10 minutes
+- Use MongoDB Atlas (not local MongoDB) for production
+- Update CORS settings if frontend is on a different domain
+
 ## How It Works
 
 ### Backend Flow
