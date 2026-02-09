@@ -6,9 +6,9 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/jwt_auth
-      - JWT_SECRET=7x!A%gK2mP9$xL@wQ4dF6hJ8nB5vC3yR1zT0sU2qW
-      - PORT=5000
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=${PORT}
     depends_on:
       - mongo
     networks:
