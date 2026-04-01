@@ -1,5 +1,7 @@
 # JWT Authentication Example
 
+JWT (JSON Web Token) is a compact, signed token format used to securely transmit user identity and authorization claims between client and server.
+
 A simple JWT-based authentication system built with Node.js/Express, MongoDB, and vanilla HTML/CSS/JS frontend.
 
 ## Features
