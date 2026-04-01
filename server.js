@@ -6,11 +6,12 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
+// Enable CORS (Cross-Origin Resource Sharing) to allow requests from different domains/origins
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// MongoDB Connection
+// MongoDB Connection - project JWT
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
